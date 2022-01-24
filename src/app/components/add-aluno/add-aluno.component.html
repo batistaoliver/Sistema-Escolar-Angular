@@ -1,0 +1,43 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Aluno Incluir</h5> 
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <div *ngIf="!submitted">
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nome"
+                    required
+                    [(ngModel)]="aluno.nome"
+                    name="nome"
+                  />
+                </div>
+        
+                  <div class="form-group">
+                    <label for="DataInicio">Data Inicio</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="DataInicio"
+                      required
+                      [(ngModel)]="aluno.dataNascimento"
+                      name="DataInicio"
+                    />
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button (click)="incluir()" class="btn btn-success">Incluir</button>
+          </div>
+        </div>
+      </div> 
+      </div>
+    </div>

@@ -1,0 +1,81 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Curso Excluir</h5> 
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome"
+                  required
+                  [(ngModel)]="curso.nome"
+                  name="nome"
+                />
+              </div>
+      
+              <div class="form-group">
+                  <label for="instrutor">Instrutor</label>
+                  <input
+                    class="form-control"
+                    id="instrutor"
+                    required
+                    [(ngModel)]="curso.instrutor"
+                    name="instrutor"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="local">Local</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="local"
+                    required
+                    [(ngModel)]="curso.local"
+                    name="local"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="cargaHoraria" >Carga Horaria</label>
+                  <input
+                  type="number"
+                    class="form-control"
+                    id="cargaHoraria"
+                    required
+                    [(ngModel)]="curso.cargaHoraria"
+                    name="cargaHoraria"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="DataInicio">Data Inicio</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="DataInicio"
+                    required
+                    [(ngModel)]="curso.DataInicio"
+                    name="DataInicio"
+                  />
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="excluir()" class="btn btn-success">Excluir</button>
+        </div>
+      </div>
+    </div> 
+    
+  
+      <!-- <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      </div> -->
+    </div>
+  </div>

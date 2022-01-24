@@ -1,0 +1,84 @@
+ 
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Curso</h5> 
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="search" class="label">Nome:</label>
+          <input (keyup)="onKeyUp($event)"
+          #campoInput class='form-control mt-3' type="text" id="search" >
+          <button class='btn btn-primary mt-3' (click)="consultar()">Pesquisar</button>
+          <br>
+          <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Instrutor</th>
+                        <th scope="col">Local</th>
+                        <th scope="col">Carga Horária</th>
+                        <th scope="col">Data Início</th>
+                    </tr>
+                </thead>
+                <div *ngIf="curso1.nome != ''">
+                  
+                </div>
+                <tbody>
+                    <ng-container *ngFor="let curso of cursos">
+                        <tr>
+                            <th scope="row"><input type="radio" name="curso" [value]="curso.codigo"  (click)="onSelect($event)"></th>
+                            <td>{{curso.codigo}}</td>
+                            <td>{{curso.nome}}</td>
+                            <td>{{curso.instrutor}}</td>
+                            <td>{{curso.local}}</td>
+                            <td>{{curso.cargaHoraria}}</td>
+                            <td>{{curso.dataInicio | date: 'shortDate':'DD/MM/YYYY'}}</td>
+                        </tr>
+
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" [routerLink]="'/curso/incluir'"> Incluir</button>
+        <button class="btn btn-primary" [routerLink]="['/curso/alterar', cursoIdSelecionado,nomeCurso]"> Alterar</button>
+        <button class="btn btn-danger" (click)="excluir()"> Excluir</button>
+      </div>
+    </div>
+  </div> 
+  <router-outlet></router-outlet>
+
+
+
+<div class="list row">
+  
+    <!-- <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="curso.nome"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="consultar()"
+          >
+            Search
+          </button>
+        </div>
+        <label>{{curso.nome}}</label>
+      </div>
+    </div> -->
+
+  </div>
+  

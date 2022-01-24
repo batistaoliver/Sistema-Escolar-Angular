@@ -1,0 +1,93 @@
+<div >
+    <div class="submit-form">
+       <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+             <div class="modal-header">
+                <h5 class="modal-title">Matricula - Incluir</h5>
+             </div>
+             <div class="modal-body">
+                 <form [formGroup]="matriculaForm">
+                <label for="search" class="label">Aluno:</label>
+                
+                <select class="form-control mt-3" type="text" id="search" (change)="doSomething()"  formControlName="alunoCodigo">
+                    <option selected="selected">Selecionar</option> 
+                    <ng-container *ngFor="let aluno of alunos">
+                      <option [value]="aluno.codigo">{{ aluno.nome }}</option>
+                    </ng-container>
+                  </select>
+
+                <div class="submit-form">
+                   <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                         <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Curso</h5>
+                         </div>
+                         <div class="modal-body">
+                            <div class="row">
+                               <div class="col-sm-6">
+                                  <div class="form-group mb-3">
+                                     <label for="nome" class="label">Curso</label>
+                                     <select class="form-control mt-3 ng-valid ng-dirty ng-touched" type="text" id="search2" (change)="doSomething2()" formControlName="codigo">
+                                        <option selected="selected">Selecionar</option> 
+                                        <ng-container *ngFor="let curso of cursos">
+                                          <option [value]="curso.codigo" >{{ curso.nome }}</option>
+                                        </ng-container>
+                                      </select>
+                                  </div>
+                               </div>
+                               <div class="col-sm-6">
+                                  <div class="form-group col">
+                                     <label for="data-nascimento" class="label">Data Matrícula</label>
+                                     <input class="form-control mt-3" type="date" id="data-inicio" formControlName="dataInicio"/>
+                                  </div>
+                               </div>
+                            </div>
+                            <button class="btn btn-primary me-3" (click)="adicionarCurso()">
+                            Adicionar
+                            </button>
+                            
+
+<div class="table-responsive mt-3">
+    <table class="table">
+       <thead>
+          <tr>
+             <th scope="col">Curso</th>
+             <th scope="col">Data Matrícula</th>
+             <th scope="col"></th>
+          </tr>
+       </thead>
+       <tbody>
+        <ng-container *ngFor="let curso of cursosControl.controls; index as i">
+            <tr>
+                <td scope="col">{{ curso?.value?.curso?.nome }}</td>
+                <td scope="col">
+                    {{ curso?.value?.dataMatriculaCurso | date: "shortDate":"DD/MM/YYYY" }}
+                </td>
+                <td scope="col">
+                    <button class="btn btn-primary me-3" (click)="excluirCursoTabela(i)">
+    X
+  </button>
+                </td>
+            </tr>
+        </ng-container>
+       </tbody>
+    </table>
+ </div>
+ 
+ 
+                         </div>
+                      </div>
+                   </div>
+                </div>
+            </form>
+             </div>
+             <div class="modal-footer">
+                <button class="btn btn-success" (click)="incluir()">Incluir</button>
+                <button class="btn btn-primary">Voltar</button>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ 
+ 

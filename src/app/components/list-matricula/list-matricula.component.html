@@ -1,0 +1,46 @@
+ 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Matricula</h5> 
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="search" class="label">Aluno:</label>
+          <input (keyup)="onKeyUp($event)"
+          #campoInput class='form-control mt-3' type="text" id="search" >
+          <button class='btn btn-primary mt-3' (click)="consultar()">Pesquisar</button>
+          <br>
+          <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let matricula of matriculas">
+                        <tr>
+                            <th scope="row"><input type="radio" name="aluno" [value]="matricula.codigo"  (click)="onSelect($event)"></th>
+                            <td>{{matricula?.codigo}}</td>
+                            <td>{{matricula?.aluno?.nome}}</td>
+                        </tr>
+
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" [routerLink]="'/matricula/incluir'"> Incluir</button>
+        <button class="btn btn-danger" (click)="excluir()"> Excluir</button>
+      </div>
+    </div>
+  </div> 
+  <router-outlet></router-outlet>
+
+  
